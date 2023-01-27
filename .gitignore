@@ -1,4 +1,5 @@
+.DS_Store
+.env
 cache.json
 config.json
 sugar.log
-.DS_Store

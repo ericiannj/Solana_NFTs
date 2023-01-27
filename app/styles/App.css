@@ -77,14 +77,14 @@
     align-items: center;
     position: absolute;
     width: 100%;
-    bottom: 0;
+    bottom: 10px;
     left: 0;
-    /* padding-bottom: 45px; */
 }
 
-.twitter-logo {
+.github-logo {
     width: 35px;
     height: 35px;
+    margin-right: 5px;
 }
 
 .footer-text {

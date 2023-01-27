@@ -1,10 +1,7 @@
 import React from "react";
 import dynamic from 'next/dynamic';
+import CandyMachine from "../components/CandyMachine";
 import { useWallet } from "@solana/wallet-adapter-react";
-
-// Constantes
-const TWITTER_HANDLE = "web3dev_";
-const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const Home = () => {
     const WalletMultiButtonDynamic = dynamic(
@@ -14,7 +11,7 @@ const Home = () => {
     const wallet = useWallet();
     const renderNotConnectedContainer = () => (
         <div>
-            <img src="https://media.giphy.com/media/eSwGh3YK54JKU/giphy.gif" alt="emoji"/>
+            <img src="https://media.giphy.com/media/58Fr0zNVJyoRX6H3wY/giphy.gif" alt="emoji"/>
 
             <div className="button-container">
                 <WalletMultiButtonDynamic className="cta-button connect-wallet-button" />
@@ -27,12 +24,12 @@ const Home = () => {
             <div className="container">
                 <div className="header-container">
                     <p className="header">🍭 Candy Drop</p>
-                    <p className="sub-text">Máquina de NFTs com cunhagem justa</p>
-                    {wallet.publicKey ? "Hello World" : renderNotConnectedContainer()}
+                    <p className="sub-text">NFTs Machine</p>
+                    {wallet.publicKey ? < CandyMachine walletAddress={wallet} /> : renderNotConnectedContainer()}
                 </div>
                 <div className="footer-container">
-                    <img alt="Twitter Logo" className="twitter-logo" src="twitter-logo.svg" />
-                    <a className="footer-text" href={TWITTER_LINK} target="_blank" rel="noreferrer">{`feito por @${TWITTER_HANDLE}`}</a>
+                    <img alt="GitHub Logo" className="github-logo" src="github-logo.png" />
+                    <a className="footer-text" href="https://github.com/ericiannj" target="_blank" rel="noreferrer">By @ericiannj</a>
                 </div>
             </div>
         </div>

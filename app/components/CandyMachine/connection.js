@@ -3,7 +3,7 @@ import { Transaction } from "@solana/web3.js";
 import { WalletNotConnectedError } from "@solana/wallet-adapter-base";
 
 export const getErrorForTransaction = async (connection, txid) => {
-    // aguarde toda a confirmação antes de obter a transação
+    // Wait confirmation before transaction
     await connection.confirmTransaction(txid, "max");
 
     const tx = await connection.getParsedConfirmedTransaction(txid);
@@ -14,7 +14,7 @@ export const getErrorForTransaction = async (connection, txid) => {
             const regex = /Error: (.*)/gm;
             let m;
             while ((m = regex.exec(log)) !== null) {
-                // Isso é necessário para evitar loops infinitos com correspondências de largura zero
+                // Avoid infinite looping
                 if (m.index === regex.lastIndex) {
                     regex.lastIndex++;
                 }
